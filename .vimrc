@@ -12,7 +12,8 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -22,7 +23,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'vim-airline/vim-airline'
 Plugin 'powerline/fonts'
 Bundle 'chase/vim-ansible-yaml'
-
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,6 +57,7 @@ set showcmd
 
 
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_path_to_python_interpreter='/usr/bin/python3'
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " This configuration filters out .pyc, .git, .hg, .svn 
 
@@ -73,3 +75,18 @@ filetype plugin on
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e``
 
+" use goimports for formatting
+let g:go_fmt_command = "goimports"
+
+" turn highlighting on
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+
+" Open go doc in vertical window, horizontal
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"  <CR>
