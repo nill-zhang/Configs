@@ -12,9 +12,9 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'scrooloose/syntastic'
+
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
+
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
