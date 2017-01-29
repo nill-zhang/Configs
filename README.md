@@ -22,7 +22,7 @@ cmake --build . --target ycm_core
 #for go support
 cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/gocode
 go build
-
+GoInstallBinaries(within vim)
 
 #with clang support
 mkdir -p ~/ycm_temp/llvm_root_dir
